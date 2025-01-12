@@ -6,3 +6,6 @@ Task Categorization: Organize tasks into categories for better management.
 Due Date Reminders: Alerts to keep track of deadlines.
 Progress Tracking: Monitor task status and completion rates.
 CRUD Operations: Fully supports creating, reading, updating, and deleting tasks.
+
+
+Note  -  you can run the project with index.html file
