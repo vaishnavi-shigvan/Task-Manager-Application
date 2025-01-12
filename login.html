@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <!-- message -->
+    <div class="msg msg-success animate slide-in-down">
+        <span class="msg-close-button" onclick="hide();">&times;</span>
+        <!-- Close button -->
+        Congratulations! Your account has been successfully created
+    </div>
+    <!-- end message -->
+
+    <div class="bottom">
+        <div class="bg-img">
+            <div class="container">
+                <h1>Login</h1>
+
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button class="btn btn-success">Login</button><br><br>
+
+                <a href="#">Sign UP</a><br>
+                <a href="#">Forget Password</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        (function() {
+            var clear;
+            var msgDuration = 2000; // 2 seconds
+            var $msgSuccess = 'Congratulations! Your account has been successfully created';
+
+            // cache DOM
+            var $msg = $('.msg');
+            var $btnSuccess = $('.btn-success');
+
+            // render message
+            function render(message) {
+                hide();
+                switch (message) {
+                    case 'success':
+                        $msg.addClass('msg-success active').text($msgSuccess);
+                        break;
+                }
+                timer();
+            }
+
+            function timer() {
+                clearTimeout(clear);
+                clear = setTimeout(function() {
+                    hide();
+                }, msgDuration);
+            }
+
+            function hide() {
+                $msg.removeClass('msg-success msg-danger msg-warning msg-info active');
+            }
+
+            $btnSuccess.on('click', function() {
+                render('success');
+            });
+
+            // Close button event listener
+            $('.msg-close-button').on('click', function() {
+                hide();
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
